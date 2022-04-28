@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: flex-end;
+    display: flex;
+    width: 100%;
+    background-color: lightgrey;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10%;
+    
+  }
+
+.flex-item {
+    background-color: cornflowerblue;
+    width: 100%;
+    height: 45%;
+}
+
+#flex-item1 {
+    background-color: white;
+    width: 100%;
+    height: 45%;
+    margin: 10px;
+}
+
+#flex-item2 {
+    background-color: white;
+    width: 100%;
+    height: 45%;
+    margin: 10px;
+}
+
+.olympic {
+text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+  <div class="flex-container">
+    
+    <div class="flex-item">
+    
+      <p class="olympic">Countdown to Beijing</p>
+    
+      <div id="flex-item1"></div>
+    
+    </div>
+    
+    <div class="flex-item">
+    
+      <p class="olympic">Countdown to Beijing</p>
+    
+      <div id="flex-item2"></div>
+    
+    </div> 
+
+  </div>
+
+  <div class="flex-container">
+    
+    <div>
+      
+      <p class="olympic">the uganda olympic committee (uoc) was constituted in 1950 and recognised by the ioc in 1956</p>
+    
+    </div>
+
+  </div>
+  <script>
+// Set the dates we're counting down to
+var event1 = new Date("Jan 5, 2024 15:37:25").getTime();
+var event2 = new Date("Dec 2, 2023 13:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance1 = event1 - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days1 = Math.floor(distance1 / (1000 * 60 * 60 * 24));
+  var hours1 = Math.floor((distance1 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes1 = Math.floor((distance1 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds1 = Math.floor((distance1 % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="flex-item1"
+  var first_timer = document.getElementById("flex-item1").innerHTML = days1 + " DAYS " + hours1 + " HOURS "
+  + minutes1 + " MINUTES" + seconds1 + " SECONDS ";
+
+
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("flex-item1").innerHTML = "TIMER EXPIRED";
+  }
+}, 1000);
+
+
+// Update the count down every 1 second
+var y = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance2 = event2 - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days2 = Math.floor(distance2 / (1000 * 60 * 60 * 24));
+  var hours2 = Math.floor((distance2 % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes2 = Math.floor((distance2 % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds2 = Math.floor((distance2 % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="flex-item2"
+  document.getElementById("flex-item2").innerHTML = days2 + " DAYS " + hours2 + " HOURS "
+  + minutes2 + " MINUTES " + seconds2 + " SECONDS ";
+    
+  // If the count down is over, write some text 
+  if (distance2 < 0) {
+    clearInterval(y);
+    document.getElementById("flex-item2").innerHTML = "TIMER EXPIRED";
+  }
+}, 1000);
+
+</script>
+
+</body>
+</html>
